@@ -1,0 +1,82 @@
+body {
+    max-width: 1200px;
+}
+
+.container-fluid {
+    padding: 0;
+    margin: 0;
+    left: 0;
+    top: 0;
+}
+
+.my-box-fast {
+    background-color: #7d7d7d;
+}
+
+.my-box {
+    display: flex;
+    width: 100%;
+    border-bottom: 1px solid #000;
+    height: 50px;
+    align-items: center;
+    padding-left: 15px;
+}
+
+.logo {
+    font-size: 18px;
+    background-color: #cab8d9;
+}
+
+a {
+    text-decoration: none;
+    color: #000
+}
+
+.side {
+    width: 200px;
+    font-weight: bold;
+    min-height: 600px;
+    background-color: #dcdcdc;
+}
+
+.side-menu1 {
+    background-color: #ffffff
+}
+
+.side-menu2 {
+    position: relative;
+}
+
+.logout {
+    display: flex;
+    height: 33vh;
+}
+
+.logout button {
+    display: flex;
+    width: 80%;
+    align-items: center;
+    justify-content: center;
+    margin-top: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 4vh;
+}
+
+.mein-content {
+    margin: 0 10%;
+    margin-top: 20px;
+}
+
+.mein-content label {
+    font-weight: bold;
+    font-size: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+.mein-content p {
+    font-size: 15px;
+    margin: 0;
+    padding-bottom: 5px;
+}
