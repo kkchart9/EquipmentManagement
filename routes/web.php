@@ -25,3 +25,7 @@ Route::get('/equipment/register/confirm', [App\Http\Controllers\Equipment_Regist
 
 // 登録用
 Route::post('/equipment/register/confirm/store', [App\Http\Controllers\Equipment_RegisterController::class, 'store']);
+
+
+// スケジュール登録画面
+Route::get('/schedule/register', [App\Http\Controllers\ScheduleController::class, 'index']);

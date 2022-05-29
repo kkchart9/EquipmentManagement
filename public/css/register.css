@@ -80,3 +80,148 @@ a {
     margin: 0;
     padding-bottom: 5px;
 }
+
+
+
+/* スケジュール登録画面 */
+
+
+/* スケジュール登録画面　サイド */
+.schedule-side{
+    text-align: center;
+}
+
+.schedule-side .nav-item {
+    margin-top: 15px;
+}
+
+.schedule-side .nav-item a{
+    color: #000;
+}
+
+.schedule-side .item:hover {
+    background-color: #7d7d7d;
+}
+
+.schedule-side .my-icon {
+    width: 72px;
+    height: 72px;
+    border: #000 1px solid;
+    border-radius: 50%;
+    margin: auto;
+}
+
+
+/* スケジュール登録  メイン */
+
+.schedule-main {
+    width: 1000px;
+}
+
+.schedule-main h3 {
+    width: auto;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.schedule-main .main-section {
+    padding-left: 90px;
+    margin-top: 64px;
+}
+
+.schedule-main .main-section h4 {
+    margin-top: 36px;
+}
+
+.schedule-main .main-section .date{
+    display: flex;
+    margin-top: 24px;
+}
+
+.schedule-main .main-section .date div {
+    margin-right: 60px;
+    padding-left: 16px;
+    padding-right: 16px;
+    font-size: 24px;
+    background-color: #cccccc;
+}
+
+.schedule-main .main-section .time {
+    display: flex;
+    margin-top: 24px;
+}
+
+.schedule-main .main-section .time div {
+    margin-right: 60px;
+    padding-left: 16px;
+    padding-right: 16px;
+    font-size: 24px;
+    background-color: #cccccc;
+}
+
+.schedule-main .main-section .event .event-name{
+    margin-top: 12px;
+    background-color: #cccccc;
+    width: 600px;
+    height: 32px;
+    border: none;
+}
+
+.schedule-main .main-section .belongings-title{
+    display: flex;
+    margin-top: 48px;
+}
+
+.schedule-main .main-section .belongings-title h4{
+    margin-top: 0px;
+    margin-right: 120px;
+}
+
+.schedule-main .main-section .belongings-title .equipment-search{
+    height: 40px;
+    margin-right: 240px;
+    background-color: #cccccc;
+    border: none;
+}
+
+.schedule-main .main-section .belongings-title .sort {
+    background-color: #cccccc;
+    padding: 8px 16px;
+}
+
+.schedule-main .main-section .belongings-content {
+    display: flex;
+    margin-top: 16px;
+}
+
+.schedule-main .main-section .belongings-content div {
+    height: 40px;
+    font-size: 24px;
+    border: #000 1px solid;
+    background-color: #cccccc;
+}
+
+.schedule-main .main-section .belongings-content .checkbox {
+    width: 96px;
+}
+
+.schedule-main .main-section .belongings-content .equipment-name {
+    width: 360px;
+    padding-left: 8px;
+}
+
+.schedule-main .main-section .belongings-content .edit {
+    width: 120px;
+    text-align: center;
+}
+
+.schedule-main .main-section .belongings-content .equipment-genre {
+    width: 96px;
+    text-align: center;
+}
+
+.schedule-main .main-section .belongings-content .manufacturer {
+    width: 96px;
+    text-align: center;
+}
+
