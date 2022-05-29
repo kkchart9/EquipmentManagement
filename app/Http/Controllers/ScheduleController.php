@@ -10,4 +10,9 @@ class ScheduleController extends Controller
     {
         return view('schedule.register');
     }
+
+    public function edit()
+    {
+        return view('schedule.edit');
+    }
 }

@@ -86,7 +86,12 @@ a {
 /* スケジュール登録画面 */
 
 
-/* スケジュール登録画面　サイド */
+/* スケジュール登録画面 サイド */
+
+.side-schedule {
+    position: fixed;
+}
+
 .schedule-side{
     text-align: center;
 }
@@ -115,7 +120,7 @@ a {
 /* スケジュール登録  メイン */
 
 .schedule-main {
-    width: 1000px;
+    width: 1200px;
 }
 
 .schedule-main h3 {
@@ -125,7 +130,7 @@ a {
 }
 
 .schedule-main .main-section {
-    padding-left: 90px;
+    padding-left: 290px;
     margin-top: 64px;
 }
 
@@ -163,13 +168,22 @@ a {
     margin-top: 12px;
     background-color: #cccccc;
     width: 600px;
-    height: 32px;
+    height: 40px;
+    border: none;
+}
+
+.schedule-main .main-section .location .location-name{
+    margin-top: 12px;
+    background-color: #cccccc;
+    width: 600px;
+    height: 40px;
     border: none;
 }
 
 .schedule-main .main-section .belongings-title{
     display: flex;
     margin-top: 48px;
+    margin-bottom: 16px;
 }
 
 .schedule-main .main-section .belongings-title h4{
@@ -191,7 +205,6 @@ a {
 
 .schedule-main .main-section .belongings-content {
     display: flex;
-    margin-top: 16px;
 }
 
 .schedule-main .main-section .belongings-content div {
@@ -225,3 +238,27 @@ a {
     text-align: center;
 }
 
+
+.schedule-main .main-section .register {
+    margin-top: 36px;
+    margin-left: 320px;
+    margin-bottom: 120px;
+    width: 120px;
+    height: 48px;
+    border: none;
+    background-color: #cccccc;
+    font-size: 24px;
+}
+
+.schedule-main .main-section .button {
+    margin-top: 36px;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 120px;
+}
+
+.schedule-main .main-section .button button {
+    border: none;
+    padding: 8px 16px;
+    background-color: #cccccc;
+}

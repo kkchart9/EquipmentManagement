@@ -27,5 +27,9 @@ Route::get('/equipment/register/confirm', [App\Http\Controllers\Equipment_Regist
 Route::post('/equipment/register/confirm/store', [App\Http\Controllers\Equipment_RegisterController::class, 'store']);
 
 
+
 // スケジュール登録画面
 Route::get('/schedule/register', [App\Http\Controllers\ScheduleController::class, 'index']);
+
+// スケジュール編集画面
+Route::get('/schedule/edit', [App\Http\Controllers\ScheduleController::class, 'edit']);
