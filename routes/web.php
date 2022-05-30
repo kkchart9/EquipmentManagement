@@ -28,8 +28,14 @@ Route::post('/equipment/register/confirm/store', [App\Http\Controllers\Equipment
 
 
 
+// スケジュール画面
+Route::get('/schedule', [App\Http\Controllers\ScheduleController::class, 'index']);
+
 // スケジュール登録画面
-Route::get('/schedule/register', [App\Http\Controllers\ScheduleController::class, 'index']);
+Route::get('/schedule/register', [App\Http\Controllers\ScheduleController::class, 'register']);
+
+// 登録
+Route::post('/schedule/register', [App\Http\Controllers\ScheduleController::class, 'store']);
 
 // スケジュール編集画面
 Route::get('/schedule/edit', [App\Http\Controllers\ScheduleController::class, 'edit']);

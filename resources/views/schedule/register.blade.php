@@ -29,31 +29,62 @@
     <div class="schedule-main">
         <h3>スケジュール登録画面</h3>
     
-        <div class="main-section">
+        <form class="main-section" action="{{ url('/schedule/register') }}" method="POST">
+            @csrf
             <h4>日時</h4>
             <div class="date">
-                <div class="year">0000年</div>
-                <div class="manth">00月</div>
-                <div class="day">00日</div>
+                <select name="year">
+                    <?php for($i=0; $i<5; $i++):?>
+                        <option value="<?php echo date('Y') + $i; ?>"><?php echo date('Y') + $i; ?>年</option>
+                    <?php endfor; ?>
+                </select>
+                <select name="month">
+                    <?php for($i=1; $i<=12; $i++):?>
+                        <option value="<?php echo sprintf('%02d', $i); ?>"><?php echo sprintf('%02d', $i); ?>月</option>
+                    <?php endfor; ?>
+                </select>
+                <select name="day">
+                    <?php for($i=1; $i<=31; $i++):?>
+                        <option value="<?php echo sprintf('%02d', $i); ?>"><?php echo sprintf('%02d', sprintf('%02d', $i)); ?>日</option>
+                    <?php endfor; ?>
+                </select>
             </div>
             <div class="time">
-                <div class="statr">開始時刻</div>
-                <div class="end">終了時刻</div>
+                <label for="start">開始時刻</label>
+                <select name="start_hour" id="start">
+                    <?php for($i=0; $i<=23; $i++):?>
+                        <option value="<?php echo sprintf('%02d', $i); ?>"><?php echo sprintf('%02d', sprintf('%02d', $i)); ?>時</option>
+                    <?php endfor; ?>
+                </select>
+                <select name="start_minute" id="start" class="minute">
+                    <?php for($i=0; $i<=59; $i++):?>
+                        <option value="<?php echo sprintf('%02d', $i); ?>"><?php echo sprintf('%02d', sprintf('%02d', $i)); ?>分</option>
+                    <?php endfor; ?>
+                </select>
+
+                <label for="end">終了時刻</label>
+                <select name="end_hour" id="end">
+                    <?php for($i=0; $i<=23; $i++):?>
+                        <option value="<?php echo sprintf('%02d', $i); ?>"><?php echo sprintf('%02d', sprintf('%02d', $i)); ?>時</option>
+                    <?php endfor; ?>
+                </select>
+                <select name="end_minute" id="end" class="minute">
+                    <?php for($i=0; $i<=59; $i++):?>
+                        <option value="<?php echo sprintf('%02d', $i); ?>"><?php echo sprintf('%02d', sprintf('%02d', $i)); ?>分</option>
+                    <?php endfor; ?>
+                </select>
             </div>
 
             <h4>予定・仕事内容</h4>
-            <div class="event">
-                <input type="text" class="event-name">
-            </div>
+            <input type="text" class="schedule_name" name="schedule_name">
+            
 
             <h4>場所</h4>
-            <div class="location">
-                <input type="text" class="location-name">
-            </div>
+                <input type="text" class="location" name="location">
 
             <div class="belongings-title">
                 <h4>持ち物選択</h4>
-                <input type="text" class="equipment-search" placeholder="機材を検索">
+                <input type="text" class="equipment_search" placeholder="機材を検索">
                 <div class="sort">並び替え</div>
             </div>
 
@@ -61,52 +92,13 @@
                 <div class="checkbox"><img src="" alt=""></div>
                 <div class="equipment-name">EOS R1（機材名）</div>
                 <div class="edit">編集</div>
-                <div class="equipment-genre">カメラ</div>
-                <div class="manufacturer">Canon</div>
-            </div>
-
-            <div class="belongings-content">
-                <div class="checkbox"><img src="" alt=""></div>
-                <div class="equipment-name">EOS R1（機材名）</div>
-                <div class="edit">編集</div>
-                <div class="equipment-genre">カメラ</div>
-                <div class="manufacturer">Canon</div>
-            </div>
-            <div class="belongings-content">
-                <div class="checkbox"><img src="" alt=""></div>
-                <div class="equipment-name">EOS R1（機材名）</div>
-                <div class="edit">編集</div>
-                <div class="equipment-genre">カメラ</div>
-                <div class="manufacturer">Canon</div>
-            </div>
-            <div class="belongings-content">
-                <div class="checkbox"><img src="" alt=""></div>
-                <div class="equipment-name">EOS R1（機材名）</div>
-                <div class="edit">編集</div>
-                <div class="equipment-genre">カメラ</div>
-                <div class="manufacturer">Canon</div>
-            </div>
-            <div class="belongings-content">
-                <div class="checkbox"><img src="" alt=""></div>
-                <div class="equipment-name">EOS R1（機材名）</div>
-                <div class="edit">編集</div>
-                <div class="equipment-genre">カメラ</div>
-                <div class="manufacturer">Canon</div>
-            </div>
-            <div class="belongings-content">
-                <div class="checkbox"><img src="" alt=""></div>
-                <div class="equipment-name">EOS R1（機材名）</div>
-                <div class="edit">編集</div>
-                <div class="equipment-genre">カメラ</div>
+                <div class="equipment_genre">カメラ</div>
                 <div class="manufacturer">Canon</div>
             </div>
 
             <button type="submit" class="register">登録</button>
-        
-            
 
-            
-        </div>
+        </form>
     </div>
 </div>
 

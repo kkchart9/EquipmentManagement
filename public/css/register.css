@@ -138,13 +138,37 @@ a {
     margin-top: 36px;
 }
 
+.schedule-main .main-section div {
+    display: flex;
+}
+
+.schedule-main .main-section .schedule-element div {
+    margin-right: 36px;
+    padding: 8px 10px;
+    font-size: 24px;
+}
+
+.schedule-main .main-section div .schedule {
+    background-color: #cccccc;
+    width: 480px;
+}
+
+.schedule-main .main-section div .period {
+    height: 52px;
+}
+
+.schedule-main .main-section div .schedule-detail {
+    background-color: #949494;
+    height: 52px;
+}
+
 .schedule-main .main-section .date{
     display: flex;
     margin-top: 24px;
 }
 
-.schedule-main .main-section .date div {
-    margin-right: 60px;
+.schedule-main .main-section .date select {
+    margin-right: 40px;
     padding-left: 16px;
     padding-right: 16px;
     font-size: 24px;
@@ -152,19 +176,26 @@ a {
 }
 
 .schedule-main .main-section .time {
-    display: flex;
     margin-top: 24px;
 }
 
-.schedule-main .main-section .time div {
-    margin-right: 60px;
-    padding-left: 16px;
-    padding-right: 16px;
+.schedule-main .main-section .time label {
     font-size: 24px;
-    background-color: #cccccc;
+    font-weight: 400;
+    margin-right: 36px;
 }
 
-.schedule-main .main-section .event .event-name{
+.schedule-main .main-section .time select {
+    background-color: #cccccc;
+    height: 36px;
+}
+
+.schedule-main .main-section .time .minute {
+    margin-right: 36px;
+}
+
+
+.schedule-main .main-section .schedule_name{
     margin-top: 12px;
     background-color: #cccccc;
     width: 600px;
@@ -172,7 +203,7 @@ a {
     border: none;
 }
 
-.schedule-main .main-section .location .location-name{
+.schedule-main .main-section .location{
     margin-top: 12px;
     background-color: #cccccc;
     width: 600px;
@@ -191,7 +222,7 @@ a {
     margin-right: 120px;
 }
 
-.schedule-main .main-section .belongings-title .equipment-search{
+.schedule-main .main-section .belongings-title .equipment_search{
     height: 40px;
     margin-right: 240px;
     background-color: #cccccc;
@@ -215,7 +246,7 @@ a {
 }
 
 .schedule-main .main-section .belongings-content .checkbox {
-    width: 96px;
+    width: 120px;
 }
 
 .schedule-main .main-section .belongings-content .equipment-name {
@@ -224,18 +255,18 @@ a {
 }
 
 .schedule-main .main-section .belongings-content .edit {
-    width: 120px;
-    text-align: center;
+    width: 90px;
+    padding-left: 18px;
 }
 
-.schedule-main .main-section .belongings-content .equipment-genre {
-    width: 96px;
-    text-align: center;
+.schedule-main .main-section .belongings-content .equipment_genre {
+    width: 120px;
+    padding-left: 8px;
 }
 
 .schedule-main .main-section .belongings-content .manufacturer {
-    width: 96px;
-    text-align: center;
+    width: 120px;
+    padding-left: 8px;
 }
 
 

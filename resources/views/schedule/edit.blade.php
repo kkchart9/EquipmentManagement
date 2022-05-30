@@ -42,62 +42,22 @@
             </div>
 
             <h4>予定・仕事内容</h4>
-            <div class="event">
-                <input type="text" class="event-name">
-            </div>
+            <input type="text" class="schedule_name">
 
             <h4>場所</h4>
-            <div class="location">
-                <input type="text" class="location-name">
-            </div>
+            <input type="text" class="location">
 
             <div class="belongings-title">
                 <h4>持ち物選択</h4>
-                <input type="text" class="equipment-search" placeholder="機材を検索">
+                <input type="text" class="equipment_search" placeholder="機材を検索">
                 <div class="sort">並び替え</div>
             </div>
 
             <div class="belongings-content">
                 <div class="checkbox"><img src="" alt=""></div>
-                <div class="equipment-name">EOS R1（機材名）</div>
+                <div class="equipment_name">EOS R1（機材名）</div>
                 <div class="edit">編集</div>
-                <div class="equipment-genre">カメラ</div>
-                <div class="manufacturer">Canon</div>
-            </div>
-
-            <div class="belongings-content">
-                <div class="checkbox"><img src="" alt=""></div>
-                <div class="equipment-name">EOS R1（機材名）</div>
-                <div class="edit">編集</div>
-                <div class="equipment-genre">カメラ</div>
-                <div class="manufacturer">Canon</div>
-            </div>
-            <div class="belongings-content">
-                <div class="checkbox"><img src="" alt=""></div>
-                <div class="equipment-name">EOS R1（機材名）</div>
-                <div class="edit">編集</div>
-                <div class="equipment-genre">カメラ</div>
-                <div class="manufacturer">Canon</div>
-            </div>
-            <div class="belongings-content">
-                <div class="checkbox"><img src="" alt=""></div>
-                <div class="equipment-name">EOS R1（機材名）</div>
-                <div class="edit">編集</div>
-                <div class="equipment-genre">カメラ</div>
-                <div class="manufacturer">Canon</div>
-            </div>
-            <div class="belongings-content">
-                <div class="checkbox"><img src="" alt=""></div>
-                <div class="equipment-name">EOS R1（機材名）</div>
-                <div class="edit">編集</div>
-                <div class="equipment-genre">カメラ</div>
-                <div class="manufacturer">Canon</div>
-            </div>
-            <div class="belongings-content">
-                <div class="checkbox"><img src="" alt=""></div>
-                <div class="equipment-name">EOS R1（機材名）</div>
-                <div class="edit">編集</div>
-                <div class="equipment-genre">カメラ</div>
+                <div class="equipment_genre">カメラ</div>
                 <div class="manufacturer">Canon</div>
             </div>
 
