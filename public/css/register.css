@@ -157,9 +157,13 @@ a {
     height: 52px;
 }
 
-.schedule-main .main-section div .schedule-detail {
+.schedule-main .main-section div a .schedule-detail {
     background-color: #949494;
     height: 52px;
+}
+
+.schedule-main .main-section div a .schedule-detail:hover {
+    color: #000;
 }
 
 .schedule-main .main-section .date{
@@ -292,4 +296,13 @@ a {
     border: none;
     padding: 8px 16px;
     background-color: #cccccc;
+}
+
+.schedule-main .main-section .button a .delete-button {
+    background-color: #cccccc;
+    padding: 8px 16px;
+}
+
+.schedule-main .main-section .button a .delete-button:hover {
+    color: #000;
 }

@@ -39,3 +39,6 @@ Route::post('/schedule/register', [App\Http\Controllers\ScheduleController::clas
 
 // スケジュール編集画面
 Route::get('/schedule/edit', [App\Http\Controllers\ScheduleController::class, 'edit']);
+
+// スケジュールをアップデート
+Route::post('/schedule/edit', [App\Http\Controllers\ScheduleController::class, 'update']);

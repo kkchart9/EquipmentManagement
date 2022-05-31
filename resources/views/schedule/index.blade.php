@@ -34,14 +34,14 @@
                     <div class="schedule-element">
                         <div class="schedule">{{ $item->schedule_date }}(月){{ $item->starting_time }}~{{ $item->end_time }},{{ $item->schedule_name }}</div>
                         <div class="period">当日まであと{{ $datediff }}日</div>
-                        <div class="schedule-detail">予定の詳細</div>
+                        <a href="schedule/edit?id={{ $item->id }}"><div class="schedule-detail">予定の詳細</div></a>
                     </div>
                 @else
                     <h4>{{ $index + 1 }}件目の予定</h4>
                     <div class="schedule-element">
                         <div class="schedule">{{ $item->schedule_date }}(月){{ $item->starting_time }}~{{ $item->end_time }},{{ $item->schedule_name }}</div>
                         <div class="period">当日まであと{{ $datediff }}日</div>
-                        <div class="schedule-detail">予定の詳細</div>
+                        <a href="schedule/edit?id={{ $item->id }}"><div class="schedule-detail">予定の詳細</div></a>
                     </div>
                 @endif
             @endforeach

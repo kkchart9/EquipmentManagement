@@ -39,8 +39,20 @@ class ScheduleController extends Controller
         return redirect('/schedule');
     }
 
-    public function edit()
+    public function edit(Request $request)
     {
-        return view('schedule.edit');
+        $id = $request->query('id');
+        $data = Schedule::where('id',$id)->first();
+        return view('schedule.edit', compact('id','data'));
+    }
+
+    public function update(Request $request)
+    {
+        Schedule::where('id', $request->id)->update([
+            'id' => $request->id,
+            'schedule_name' => $request->schedule_name,
+            'location' => $request->location,
+        ]);
+        return redirect('/schedule');
     }
 }
