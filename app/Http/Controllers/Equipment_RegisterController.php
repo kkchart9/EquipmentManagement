@@ -54,7 +54,6 @@ class Equipment_RegisterController extends Controller
         Equipments::create([
             'user_id' => 0,
             'equipment_name' => $request->equipment_name,
-            'equipment_image' => 0,
             'equipment_vale' => $request->equipment_vale,
             'equipment_genre' => $request->equipment_genre,
             'manufacturer' => $request->manufacturer,
