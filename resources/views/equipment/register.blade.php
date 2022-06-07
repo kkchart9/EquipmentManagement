@@ -43,11 +43,6 @@
           <input type="text" class="form-control" id="equipment_name" name="equipment_name" placeholder="登録したい機材の名称を入力してください">
         </div>
 
-        <!-- <div class="form-group mb-4">
-          <label for="equipment_image" class="form-label">機材の写真</label>
-          <input type="file" class="form-control" id="equipment_image" id="equipment_image" placeholder="登録したい機材の写真を選択してください">
-        </div> -->
-
         <div class="form-group mb-4">
           <label class="form-label" for="equipment_vale">高価度</label>
           <p>1から5段階で高価度を選択してください</p>
