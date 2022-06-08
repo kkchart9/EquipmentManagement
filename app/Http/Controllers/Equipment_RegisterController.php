@@ -52,6 +52,7 @@ class Equipment_RegisterController extends Controller
     {
         // 新規作成
         Equipments::create([
+            'user_id' => 0,
             'equipment_name' => $request->equipment_name,
             'equipment_vale' => $request->equipment_vale,
             'equipment_genre' => $request->equipment_genre,
