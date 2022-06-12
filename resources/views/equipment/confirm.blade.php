@@ -49,19 +49,19 @@
             <div class="mb-4">
                 <label class="form-label">高価度</label>
                 <span>{{$equipment_vale}}</span>
-                <input name="equipment_name" value="{{$equipment_vale}}" type="hidden">
+                <input name="equipment_vale" value="{{$equipment_vale}}" type="hidden">
             </div>
 
             <div class="mb-4">
                 <label class="form-label">ジャンル</label>
                 <span>{{$equipment_genre}}</span>
-                <input name="equipment_name" value="{{$equipment_genre}}" type="hidden">
+                <input name="equipment_genre" value="{{$equipment_genre}}" type="hidden">
             </div>
 
             <div class="mb-4">
                 <label class="form-label">メーカー名</label>
                 <span>{{$manufacturer}}</span>
-                <input name="equipment_name" value="{{$manufacturer}}" type="hidden">
+                <input name="manufacturer" value="{{$manufacturer}}" type="hidden">
             </div>
 
             <div class="mb-4">
