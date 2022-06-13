@@ -25,3 +25,20 @@ Route::get('/equipment/register/confirm', [App\Http\Controllers\Equipment_Regist
 
 // 登録用
 Route::post('/equipment/register/confirm/store', [App\Http\Controllers\Equipment_RegisterController::class, 'store']);
+
+
+
+// スケジュール画面
+Route::get('/schedule', [App\Http\Controllers\ScheduleController::class, 'index']);
+
+// スケジュール登録画面
+Route::get('/schedule/register', [App\Http\Controllers\ScheduleController::class, 'register']);
+
+// 登録
+Route::post('/schedule/register', [App\Http\Controllers\ScheduleController::class, 'store']);
+
+// スケジュール編集画面
+Route::get('/schedule/edit', [App\Http\Controllers\ScheduleController::class, 'edit']);
+
+// スケジュールをアップデート
+Route::post('/schedule/edit', [App\Http\Controllers\ScheduleController::class, 'update']);

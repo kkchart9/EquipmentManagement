@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title')
+<title>機材新規登録確認画面</title>
+@endsection
+
 @section('content')
 
 
