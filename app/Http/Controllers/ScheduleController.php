@@ -55,4 +55,17 @@ class ScheduleController extends Controller
         ]);
         return redirect('/schedule');
     }
+
+    public function destroy(Request $request)
+    {
+        $id = $request->query('id');
+        $data = Schedule::where('id',$id)->first();
+        return view('schedule.destroy', compact('id','data'));
+    }
+
+    public function delete(Request $request)
+    {
+        Schedule::where('id', $request->id)->delete();
+        return redirect('/schedule');
+    }
 }

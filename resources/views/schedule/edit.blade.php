@@ -15,7 +15,7 @@
             <li class="nav-item"><a href="" class="nav-link"><div class="my-icon"><img src="" alt=""></div></a></li>
             <li class="nav-item item"><a href="" class="nav-link">プロフィール</a></li>
             <li class="nav-item item"><a href="" class="nav-link">機材一覧</a></li>
-            <li class="nav-item item"><a href="" class="nav-link">スケジュール</a></li>
+            <li class="nav-item item"><a href="/schedule" class="nav-link">スケジュール</a></li>
             <li class="nav-item item"><a href="" class="nav-link">カレンダー</a></li>
         </ul>
 
@@ -100,7 +100,7 @@
 
             <div class="button">
                 <button type="submit">この内容を保存する</button>
-                <a href="{{ url('/schedule/') }}"><div class="delete-button">このスケジュールを削除</div></a>
+                <a href="destroy?id={{ $data->id }}"><div class="delete-button">このスケジュールを削除</div></a>
             </div>
 
         </form>

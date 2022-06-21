@@ -13,7 +13,7 @@
             <li class="nav-item"><a href="" class="nav-link"><div class="my-icon"><img src="" alt=""></div></a></li>
             <li class="nav-item item"><a href="" class="nav-link">プロフィール</a></li>
             <li class="nav-item item"><a href="" class="nav-link">機材一覧</a></li>
-            <li class="nav-item item"><a href="" class="nav-link">スケジュール</a></li>
+            <li class="nav-item item"><a href="schedule" class="nav-link">スケジュール</a></li>
             <li class="nav-item item"><a href="" class="nav-link">カレンダー</a></li>
         </ul>
 
@@ -26,6 +26,7 @@
 
     <div class="schedule-main">
         <h3>スケジュール一覧</h3>
+        <div class="button"><a href="schedule/register" class="create">スケジュール新規作成</a></div>
         <div class="main-section">
             @foreach ($data as $index => $item)
             <?php $datediff = floor( strtotime( $item->schedule_date ) - strtotime(date("Y-m-d") )) / 86400 ;?>
