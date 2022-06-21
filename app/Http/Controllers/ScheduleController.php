@@ -35,6 +35,9 @@ class ScheduleController extends Controller
             'starting_time' => $starting_time,
             'end_time' => $end_time,
             'location' => $request->location,
+            'belongings' => '持ち物',
+            'schedule_color' => '#cccccc',
+            'optional_item' => '自由項目',
         ]);
         return redirect('/schedule');
     }
