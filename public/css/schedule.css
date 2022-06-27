@@ -154,6 +154,10 @@
     border-radius: 8px;
 }
 
+.schedule-main .main-section .schedule_color {
+    margin-top: 16px;
+}
+
 .schedule-main .main-section .belongings-title{
     display: flex;
     margin-top: 48px;

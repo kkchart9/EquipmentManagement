@@ -82,6 +82,9 @@
             <h4>場所</h4>
                 <input type="text" class="location" name="location">
 
+            <h4>スケジュールの色</h4>
+                <input type="color" name="schedule_color" value="#ff0000" class="schedule_color">
+
             <div class="belongings-title">
                 <h4>持ち物選択</h4>
                 <input type="text" class="equipment_search" placeholder="機材を検索">
