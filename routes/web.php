@@ -42,3 +42,9 @@ Route::get('/schedule/edit', [App\Http\Controllers\ScheduleController::class, 'e
 
 // スケジュールをアップデート
 Route::post('/schedule/edit', [App\Http\Controllers\ScheduleController::class, 'update']);
+
+// スケジュールの削除画面
+Route::get('/schedule/destroy', [App\Http\Controllers\ScheduleController::class, 'destroy']);
+
+// スケジュールの削除
+Route::post('/schedule/destroy', [App\Http\Controllers\ScheduleController::class, 'delete']);

@@ -35,6 +35,9 @@ class ScheduleController extends Controller
             'starting_time' => $starting_time,
             'end_time' => $end_time,
             'location' => $request->location,
+            'belongings' => '持ち物',
+            'schedule_color' => $request->schedule_color,
+            'optional_item' => '自由項目',
         ]);
         return redirect('/schedule');
     }
@@ -53,6 +56,19 @@ class ScheduleController extends Controller
             'schedule_name' => $request->schedule_name,
             'location' => $request->location,
         ]);
+        return redirect('/schedule');
+    }
+
+    public function destroy(Request $request)
+    {
+        $id = $request->query('id');
+        $data = Schedule::where('id',$id)->first();
+        return view('schedule.destroy', compact('id','data'));
+    }
+
+    public function delete(Request $request)
+    {
+        Schedule::where('id', $request->id)->delete();
         return redirect('/schedule');
     }
 }

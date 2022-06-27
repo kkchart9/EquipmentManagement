@@ -15,7 +15,7 @@
             <li class="nav-item"><a href="" class="nav-link"><div class="my-icon"><img src="" alt=""></div></a></li>
             <li class="nav-item item"><a href="" class="nav-link">プロフィール</a></li>
             <li class="nav-item item"><a href="" class="nav-link">機材一覧</a></li>
-            <li class="nav-item item"><a href="" class="nav-link">スケジュール</a></li>
+            <li class="nav-item item"><a href="/schedule" class="nav-link">スケジュール</a></li>
             <li class="nav-item item"><a href="" class="nav-link">カレンダー</a></li>
         </ul>
 
@@ -81,6 +81,9 @@
 
             <h4>場所</h4>
                 <input type="text" class="location" name="location">
+
+            <h4>スケジュールの色</h4>
+                <input type="color" name="schedule_color" value="#ff0000" class="schedule_color">
 
             <div class="belongings-title">
                 <h4>持ち物選択</h4>
