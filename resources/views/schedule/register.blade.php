@@ -80,10 +80,11 @@
             
 
             <h4>場所</h4>
-                <input type="text" class="location" name="location">
+            <input type="text" class="location" name="location">
 
-            <h4>スケジュールの色</h4>
-                <input type="color" name="schedule_color" value="#ff0000" class="schedule_color">
+            <h4>スケジュールの色を選択肢してください</h4>
+            <input type="color" class="form-control form-control-lg form-control-color col-3" name="schedule_color"
+            list=datalist value="#ffffff">
 
             <div class="belongings-title">
                 <h4>持ち物選択</h4>
@@ -91,13 +92,16 @@
                 <div class="sort">並び替え</div>
             </div>
 
+            @foreach($equipment as $item)
             <div class="belongings-content">
                 <div class="checkbox"><img src="" alt=""></div>
-                <div class="equipment-name">EOS R1（機材名）</div>
+                <div class="equipment-name">{{ $item->equipment_name }}</div>
                 <div class="edit">編集</div>
-                <div class="equipment_genre">カメラ</div>
-                <div class="manufacturer">Canon</div>
+                <div class="equipment_genre">{{ $item->equipment_genre }}</div>
+                <div class="manufacturer">{{ $item->manufacturer }}</div>
             </div>
+            @endforeach
+            
 
             <button type="submit" class="register">登録</button>
 

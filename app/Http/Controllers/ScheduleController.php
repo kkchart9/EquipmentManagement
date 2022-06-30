@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Schedule;
+use App\Models\Equipments;
 
 class ScheduleController extends Controller
 {
@@ -18,7 +19,9 @@ class ScheduleController extends Controller
 
     public function register()
     {
-        return view('schedule.register');
+        $equipment = new Equipments;
+        $equipment = $equipment->get();
+        return view('schedule.register', compact('equipment'));
     }
 
     public function store(Request $request)
@@ -46,7 +49,8 @@ class ScheduleController extends Controller
     {
         $id = $request->query('id');
         $data = Schedule::where('id',$id)->first();
-        return view('schedule.edit', compact('id','data'));
+        $equipment = Equipments::get();
+        return view('schedule.edit', compact('id','data','equipment'));
     }
 
     public function update(Request $request)

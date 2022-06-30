@@ -88,13 +88,16 @@
                 <div class="sort">並び替え</div>
             </div>
 
+            @foreach($equipment as $item)
             <div class="belongings-content">
                 <div class="checkbox"><img src="" alt=""></div>
-                <div class="equipment-name">EOS R1（機材名）</div>
+                <div class="equipment-name">{{ $item->equipment_name }}</div>
                 <div class="edit">編集</div>
-                <div class="equipment_genre">カメラ</div>
-                <div class="manufacturer">Canon</div>
+                <div class="equipment_genre">{{ $item->equipment_genre }}</div>
+                <div class="manufacturer">{{ $item->manufacturer }}</div>
+                <input type="hidden" value="{{ $item->id }}">
             </div>
+            @endforeach
 
             <input type="hidden" name="id" value="{{ $data->id }}">
 
@@ -105,12 +108,6 @@
 
         </form>
 
-            
-            
-        
-            
-
-            
         </div>
     </div>
 </div>
