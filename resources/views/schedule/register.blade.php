@@ -29,7 +29,7 @@
     <div class="schedule-main">
         <h3>スケジュール登録画面</h3>
     
-        <form class="main-section" action="{{ url('/schedule/register') }}" method="POST">
+        <form class="main-section" action="{{ route('schedule.register') }}" method="POST">
             @csrf
             <h4>日時</h4>
             <div class="date">
@@ -89,7 +89,11 @@
             <div class="belongings-title">
                 <h4>持ち物選択</h4>
                 <input type="text" class="equipment_search" placeholder="機材を検索">
-                <div class="sort">並び替え</div>
+                <select name="sort" id="equipmentsSort" class="sort">
+                    <option value="">並び替え</option>
+                    <option value="idLate">新しい順</option>
+                    <option value="idOld">古い順</option>
+                </select>
             </div>
 
             @foreach($equipment as $item)
@@ -106,8 +110,13 @@
             <button type="submit" class="register">登録</button>
 
         </form>
+        <form action="/schedule/register" name="sortEquipmentsForm" method="POST">
+            @csrf
+            @method('PATCH')
+            <input type="hidden" name="equipment_sort" value="" id="equipment_sort">
+        </form>
     </div>
 </div>
-
+<script src="{{ asset('/js/schedule.js') }}"></script>
 
 @endsection

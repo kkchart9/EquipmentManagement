@@ -75,4 +75,15 @@ class ScheduleController extends Controller
         Schedule::where('id', $request->id)->delete();
         return redirect('/schedule');
     }
+
+    public function sort(Request $request)
+    {
+        $equipment_sort = $request->equipment_sort;
+        if ($equipment_sort == "idOld") {
+            $equipment = Equipments::orderBy('id', 'desc')->get();
+        } else {
+            $equipment = Equipments::get();
+        }
+        return view('schedule.register', compact('equipment'));
+    }
 }

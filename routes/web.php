@@ -35,7 +35,7 @@ Route::get('/schedule', [App\Http\Controllers\ScheduleController::class, 'index'
 Route::get('/schedule/register', [App\Http\Controllers\ScheduleController::class, 'register']);
 
 // 登録
-Route::post('/schedule/register', [App\Http\Controllers\ScheduleController::class, 'store']);
+Route::post('/schedule/register', [App\Http\Controllers\ScheduleController::class, 'store'])->name('schedule.register');
 
 // スケジュール編集画面
 Route::get('/schedule/edit', [App\Http\Controllers\ScheduleController::class, 'edit']);
@@ -48,3 +48,6 @@ Route::get('/schedule/destroy', [App\Http\Controllers\ScheduleController::class,
 
 // スケジュールの削除
 Route::post('/schedule/destroy', [App\Http\Controllers\ScheduleController::class, 'delete']);
+
+// sort
+Route::patch('/schedule/register',[App\Http\Controllers\ScheduleController::class, 'sort']);
