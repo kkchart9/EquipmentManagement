@@ -19,8 +19,7 @@ class ScheduleController extends Controller
 
     public function register()
     {
-        $equipment = new Equipments;
-        $equipment = $equipment->get();
+        $equipment = Equipments::get();
         return view('schedule.register', compact('equipment'));
     }
 
