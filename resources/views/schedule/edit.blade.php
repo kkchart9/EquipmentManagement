@@ -85,16 +85,23 @@
             <div class="belongings-title">
                 <h4>持ち物選択</h4>
                 <input type="text" class="equipment_search" placeholder="機材を検索">
-                <div class="sort">並び替え</div>
+                <select name="sort" id="equipmentsSort" class="sort">
+                    <option value="">並び替え</option>
+                    <option value="idLate">新しい順</option>
+                    <option value="idOld">古い順</option>
+                </select>
             </div>
 
+            @foreach($equipment as $item)
             <div class="belongings-content">
                 <div class="checkbox"><img src="" alt=""></div>
-                <div class="equipment-name">EOS R1（機材名）</div>
+                <div class="equipment-name">{{ $item->equipment_name }}</div>
                 <div class="edit">編集</div>
-                <div class="equipment_genre">カメラ</div>
-                <div class="manufacturer">Canon</div>
+                <div class="equipment_genre">{{ $item->equipment_genre }}</div>
+                <div class="manufacturer">{{ $item->manufacturer }}</div>
+                <input type="hidden" value="{{ $item->id }}">
             </div>
+            @endforeach
 
             <input type="hidden" name="id" value="{{ $data->id }}">
 
@@ -104,16 +111,17 @@
             </div>
 
         </form>
+    </form>
+    <form action="/schedule/register" name="sortEquipmentsForm" method="POST">
+        @csrf
+        @method('PATCH')
+        <input type="hidden" name="equipment_sort" value="" id="equipment_sort">
+    </form>
 
-            
-            
-        
-            
-
-            
         </div>
     </div>
 </div>
+<script src="{{ asset('/js/schedule.js') }}"></script>
 
 
 @endsection
