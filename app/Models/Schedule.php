@@ -18,5 +18,8 @@ class Schedule extends Model
         'starting_time',
         'end_time',
         'location',
+        'schedule_color',
+        'optional_item',
+        'belongings',
     ];
 }

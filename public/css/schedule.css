@@ -44,9 +44,26 @@
     margin-top: 30px;
 }
 
+.schedule-main .button {
+    margin-top: 56px;
+    text-align: center;
+}
+
+.schedule-main .button a {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #cccccc;
+    border-radius: 8px;
+}
+
+.schedule-main .button .create:hover {
+    color: #000;
+    font-size: 17px;
+}
+
 .schedule-main .main-section {
     padding-left: 290px;
-    margin-top: 64px;
+    margin-top: 32px;
 }
 
 .schedule-main .main-section h4 {
@@ -61,6 +78,7 @@
     margin-right: 36px;
     padding: 8px 10px;
     font-size: 24px;
+    border-radius: 8px;
 }
 
 .schedule-main .main-section div .schedule {
@@ -76,9 +94,10 @@
 .schedule-main .main-section div a .schedule-detail {
     background-color: #949494;
     height: 52px;
+    border-radius: 8px;
 }
 
-.schedule-main .main-section div a .schedule-detail:hover {
+.schedule-main .main-section .schedule-element a:hover {
     color: #000;
 }
 
@@ -93,6 +112,7 @@
     padding-right: 16px;
     font-size: 24px;
     background-color: #cccccc;
+    border-radius: 8px;
 }
 
 .schedule-main .main-section .time {
@@ -108,6 +128,7 @@
 .schedule-main .main-section .time select {
     background-color: #cccccc;
     height: 36px;
+    border-radius: 8px;
 }
 
 .schedule-main .main-section .time .minute {
@@ -121,6 +142,7 @@
     width: 600px;
     height: 40px;
     border: none;
+    border-radius: 8px;
 }
 
 .schedule-main .main-section .location{
@@ -129,6 +151,11 @@
     width: 600px;
     height: 40px;
     border: none;
+    border-radius: 8px;
+}
+
+.schedule-main .main-section .schedule_color {
+    margin-top: 16px;
 }
 
 .schedule-main .main-section .belongings-title{
@@ -147,11 +174,13 @@
     margin-right: 240px;
     background-color: #cccccc;
     border: none;
+    border-radius: 8px;
 }
 
 .schedule-main .main-section .belongings-title .sort {
     background-color: #cccccc;
     padding: 8px 16px;
+    border-radius: 8px;
 }
 
 .schedule-main .main-section .belongings-content {
@@ -190,6 +219,8 @@
 }
 
 
+
+
 .schedule-main .main-section .register {
     margin-top: 36px;
     margin-left: 320px;
@@ -199,6 +230,7 @@
     border: none;
     background-color: #cccccc;
     font-size: 24px;
+    border-radius: 8px;
 }
 
 .schedule-main .main-section .button {
@@ -212,13 +244,53 @@
     border: none;
     padding: 8px 16px;
     background-color: #cccccc;
+    border-radius: 8px;
 }
 
 .schedule-main .main-section .button a .delete-button {
     background-color: #cccccc;
     padding: 8px 16px;
+    border-radius: 8px;
 }
 
 .schedule-main .main-section .button a .delete-button:hover {
     color: #000;
+}
+
+
+/* スケジュール削除画面 */
+
+.destroy-section {
+    width: 300px;
+    margin: auto;
+    margin-top: 120px;
+}
+
+.destroy-section h2 {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.destroy-section h4 {
+    margin-top: 8px;
+    margin-bottom: 16px;
+}
+
+.destroy-section .data {
+    margin-bottom: 32px;
+    font-size: 24px;
+    padding-left: 16px;
+}
+
+.destroy-section .button {
+    text-align: center;
+}
+
+.destroy-section div button {
+    border: none;
+    display: inline-block;
+    margin: auto;
+    background-color: #cccccc;
+    padding: 8px 16px;
+    border-radius: 8px;
 }

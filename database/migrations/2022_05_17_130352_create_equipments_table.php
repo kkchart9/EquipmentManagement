@@ -19,7 +19,7 @@ class CreateEquipmentsTable extends Migration
             $table->string('equipment_name', 100);
             $table->string('equipment_image');
             $table->integer('equipment_vale');
-            $table->integer('equipment_genre');
+            $table->string('equipment_genre');
             $table->timestamps();
             $table->string('manufacturer', 30);
             $table->string('color_coding', 50);

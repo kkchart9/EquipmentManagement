@@ -15,7 +15,7 @@
             <li class="nav-item"><a href="" class="nav-link"><div class="my-icon"><img src="" alt=""></div></a></li>
             <li class="nav-item item"><a href="" class="nav-link">プロフィール</a></li>
             <li class="nav-item item"><a href="" class="nav-link">機材一覧</a></li>
-            <li class="nav-item item"><a href="" class="nav-link">スケジュール</a></li>
+            <li class="nav-item item"><a href="/schedule" class="nav-link">スケジュール</a></li>
             <li class="nav-item item"><a href="" class="nav-link">カレンダー</a></li>
         </ul>
 
@@ -29,7 +29,7 @@
     <div class="schedule-main">
         <h3>スケジュール登録画面</h3>
     
-        <form class="main-section" action="{{ url('/schedule/register') }}" method="POST">
+        <form class="main-section" action="{{ route('schedule.register') }}" method="POST">
             @csrf
             <h4>日時</h4>
             <div class="date">
@@ -80,27 +80,43 @@
             
 
             <h4>場所</h4>
-                <input type="text" class="location" name="location">
+            <input type="text" class="location" name="location">
+
+            <h4>スケジュールの色を選択肢してください</h4>
+            <input type="color" class="form-control form-control-lg form-control-color col-3" name="schedule_color"
+            list=datalist value="#ffffff">
 
             <div class="belongings-title">
                 <h4>持ち物選択</h4>
                 <input type="text" class="equipment_search" placeholder="機材を検索">
-                <div class="sort">並び替え</div>
+                <select name="sort" id="equipmentsSort" class="sort">
+                    <option value="">並び替え</option>
+                    <option value="idLate">新しい順</option>
+                    <option value="idOld">古い順</option>
+                </select>
             </div>
 
+            @foreach($equipment as $item)
             <div class="belongings-content">
                 <div class="checkbox"><img src="" alt=""></div>
-                <div class="equipment-name">EOS R1（機材名）</div>
+                <div class="equipment-name">{{ $item->equipment_name }}</div>
                 <div class="edit">編集</div>
-                <div class="equipment_genre">カメラ</div>
-                <div class="manufacturer">Canon</div>
+                <div class="equipment_genre">{{ $item->equipment_genre }}</div>
+                <div class="manufacturer">{{ $item->manufacturer }}</div>
             </div>
+            @endforeach
+            
 
             <button type="submit" class="register">登録</button>
 
         </form>
+        <form action="/schedule/register" name="sortEquipmentsForm" method="POST">
+            @csrf
+            @method('PATCH')
+            <input type="hidden" name="equipment_sort" value="" id="equipment_sort">
+        </form>
     </div>
 </div>
-
+<script src="{{ asset('/js/schedule.js') }}"></script>
 
 @endsection
