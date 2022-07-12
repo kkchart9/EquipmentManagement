@@ -1,0 +1,75 @@
+.mein-content {
+    min-width: 700px;
+}
+
+a:link,
+a:visited,
+a:hover,
+a:active {
+    color: black;
+}
+
+.table-first {
+    margin-bottom: 5px;
+    background-color: #d3d3d3;
+}
+
+th {
+    font-size: 5px;
+}
+
+.calendar {
+    font-size: 15px;
+    height: 75px;
+}
+
+.home-schedule-list .schedule-element {
+    height: 40px;
+    line-height: 40px;
+    border: 1px solid black;
+    font: 20px;
+    width: 100%;
+}
+
+.home-schedule-list .schedule-element .schedule {
+    width: 60%;
+}
+
+
+.home-schedule-list .schedule-element .period {
+    width: 25%;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+
+
+}
+
+.home-schedule-list .schedule-element .schedule-detail {
+    width: 15%;
+    background-color: #d3d3d3;
+}
+
+.home-schedule-list .schedule-element .schedule-detail:hover {
+    background-color: #7d7d7d;
+}
+
+.period-first {
+    background-color: #ff0000;
+}
+
+.period-second {
+    background-color: #ff5151;
+}
+
+.period-third {
+    background-color: #ff7a7a;
+}
+
+.day {
+    width: 100px;
+}
+
+.schedule_name {
+    border: 1px solid black;
+    background-color: aqua;
+}

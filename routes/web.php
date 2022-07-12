@@ -17,13 +17,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// 入力画面
+// 機材登録画面
 Route::get('/equipment/register', [App\Http\Controllers\Equipment_RegisterController::class, 'index']);
 
-// 確認画面
+// 機材登録確認画面
 Route::get('/equipment/register/confirm', [App\Http\Controllers\Equipment_RegisterController::class, 'confirm']);
 
-// 登録用
+// 機材登録用
 Route::post('/equipment/register/confirm/store', [App\Http\Controllers\Equipment_RegisterController::class, 'store']);
 
 
@@ -42,3 +42,7 @@ Route::get('/schedule/edit', [App\Http\Controllers\ScheduleController::class, 'e
 
 // スケジュールをアップデート
 Route::post('/schedule/edit', [App\Http\Controllers\ScheduleController::class, 'update']);
+
+
+// ホーム画面表示用
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index']);
