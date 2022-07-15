@@ -25,7 +25,8 @@ class CalendarWeekDay {
 		$sc = $schedule->where('schedule_date', $target)->first();
 		
 		if(DB::table('schedule')->where('schedule_date', $target)->exists()){
-			$test = '<p class="day">' . $this->carbon->format("j"). '</p>'. '<p class="schedule_name">'. $sc->schedule_name. '</p>';
+			$test = '<p class="day">' . $this->carbon->format("j"). '</p>'.
+					'<a href="schedule/edit?id='. $sc->id. '" class="schedule_name rounded-3">'. $sc->schedule_name. '</a>';
 		}else{
 			$test = '<p class="day">' . $this->carbon->format("j"). '</p>';
 		}
