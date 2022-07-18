@@ -54,4 +54,4 @@ Route::patch('/schedule/register',[App\Http\Controllers\ScheduleController::clas
 
 
 // ホーム画面表示用
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index']);
+Route::get('/homescreen', [App\Http\Controllers\HomeScreenController::class, 'index']);
