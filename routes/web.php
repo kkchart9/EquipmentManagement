@@ -51,3 +51,9 @@ Route::post('/schedule/destroy', [App\Http\Controllers\ScheduleController::class
 
 // sort
 Route::patch('/schedule/register',[App\Http\Controllers\ScheduleController::class, 'sort']);
+
+//edit画面でのsort
+Route::patch('/schedule/edit',[App\Http\Controllers\ScheduleController::class, 'sort_edit']);
+
+
+Route::patch('/schedule/checkbox',[App\Http\Controllers\ScheduleController::class, 'checkbox']);

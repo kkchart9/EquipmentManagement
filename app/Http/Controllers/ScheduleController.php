@@ -77,12 +77,58 @@ class ScheduleController extends Controller
 
     public function sort(Request $request)
     {
+        $equipment_search = $request->search_equipments;
         $equipment_sort = $request->equipment_sort;
+
+
         if ($equipment_sort == "idOld") {
-            $equipment = Equipments::orderBy('id', 'desc')->get();
+            if (!empty($equipment_search)) {
+                $equipment = Equipments::Where('equipment_name', 'LIKE', "%.$equipment_search.%")->orderBy('id', 'desc')->get();
+            } else {
+                $equipment = Equipments::orderBy('id', 'desc')->get();
+            }
         } else {
-            $equipment = Equipments::get();
+            if (!empty($equipment_search)) {
+                $equipment = Equipments::Where('equipment_name', 'LIKE', "%{$equipment_search}%")->get();
+            } else {
+                $equipment = Equipments::get();
+            }
         }
+
         return view('schedule.register', compact('equipment'));
+    }
+
+    public function sort_edit(Request $request)
+    {
+        $id = $request->query('id');
+        $data = Schedule::where('id',$id)->first();
+        $equipment_search = $request->search_equipments;
+        $equipment_sort = $request->equipment_sort;
+
+
+        if ($equipment_sort == "idOld") {
+            if (!empty($equipment_search)) {
+                $equipment = Equipments::Where('equipment_name', 'LIKE', "%.$equipment_search.%")->orderBy('id', 'desc')->get();
+            } else {
+                $equipment = Equipments::orderBy('id', 'desc')->get();
+            }
+        } else {
+            if (!empty($equipment_search)) {
+                $equipment = Equipments::Where('equipment_name', 'LIKE', "%{$equipment_search}%")->get();
+            } else {
+                $equipment = Equipments::get();
+            }
+        }
+        return view('schedule.edit', compact('id','data','equipment'));
+    }
+
+
+    public function checkbox(Request $request)
+    {
+        Equipments::where('id', $request->form_check_id)->update([
+            'id' => $request->form_check_id,
+            'check_value' => $request->form_check_value,
+        ]);
+        return redirect('/schedule/register');
     }
 }

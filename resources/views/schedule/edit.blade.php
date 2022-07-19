@@ -84,7 +84,8 @@
 
             <div class="belongings-title">
                 <h4>持ち物選択</h4>
-                <input type="text" class="equipment_search" placeholder="機材を検索">
+                <input type="text" class="equipment_search" id="equipment_search" placeholder="機材を検索" value="">
+                <p type="submit" class="search" name="search_button" id="search_button" onclick="searchSubmit();">検索</p>
                 <select name="sort" id="equipmentsSort" class="sort">
                     <option value="">並び替え</option>
                     <option value="idLate">新しい順</option>
@@ -112,9 +113,10 @@
 
         </form>
     </form>
-    <form action="/schedule/register" name="sortEquipmentsForm" method="POST">
+    <form action="/schedule/edit?id={{ $data->id }}" name="sortEquipmentsForm" method="POST">
         @csrf
         @method('PATCH')
+        <input type="hidden" name="search_equipments" value="" id="search_equipments">
         <input type="hidden" name="equipment_sort" value="" id="equipment_sort">
     </form>
 

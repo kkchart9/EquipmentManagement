@@ -42,7 +42,7 @@ function limit_color($a)
 
     <div class="schedule-main">
         <h3>スケジュール一覧</h3>
-        <div class="button"><a href="schedule/register" class="create">スケジュール新規作成</a></div>
+        <div class="button"><a href="/schedule/register" class="create">スケジュール新規作成</a></div>
         <div class="main-section">
             @foreach ($data as $index => $item)
             <?php $datediff = floor( strtotime( $item->schedule_date ) - strtotime(date("Y-m-d") )) / 86400 ;?>
