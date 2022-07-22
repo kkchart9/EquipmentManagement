@@ -34,18 +34,27 @@
             <h4>日時</h4>
             <div class="date">
                 <select name="year">
+                    <option value="<?php echo date('Y');?>"><?php echo date('Y');?>年</option>
                     <?php for($i=0; $i<5; $i++):?>
-                        <option value="<?php echo date('Y') + $i; ?>"><?php echo date('Y') + $i; ?>年</option>
+                        @if(date('Y') + $i != date('Y'))
+                            <option value="<?php echo date('Y') + $i; ?>"><?php echo date('Y') + $i; ?>年</option>
+                        @endif
                     <?php endfor; ?>
                 </select>
                 <select name="month">
+                    <option value="<?php echo date('m');?>"><?php echo date('m');?>月</option>
                     <?php for($i=1; $i<=12; $i++):?>
-                        <option value="<?php echo sprintf('%02d', $i); ?>"><?php echo sprintf('%02d', $i); ?>月</option>
+                        @if(date('m') != sprintf('%02d', $i))
+                            <option value="<?php echo sprintf('%02d', $i); ?>"><?php echo sprintf('%02d', $i); ?>月</option>
+                        @endif
                     <?php endfor; ?>
                 </select>
                 <select name="day">
+                    <option value="<?php echo date('d');?>"><?php echo date('d');?>日</option>
                     <?php for($i=1; $i<=31; $i++):?>
-                        <option value="<?php echo sprintf('%02d', $i); ?>"><?php echo sprintf('%02d', sprintf('%02d', $i)); ?>日</option>
+                        @if(date('d') != sprintf('%02d', $i))
+                            <option value="<?php echo sprintf('%02d', $i); ?>"><?php echo sprintf('%02d', sprintf('%02d', $i)); ?>日</option>
+                        @endif
                     <?php endfor; ?>
                 </select>
             </div>
@@ -96,6 +105,8 @@
                     <option value="idOld">古い順</option>
                 </select>
             </div>
+
+            <input type="hidden" value="{{ $equipment }}" name="equipments">
 
             @foreach($equipment as $item)
             <div class="belongings-content" id="belongings-content">

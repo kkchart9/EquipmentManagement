@@ -32,45 +32,82 @@
         <form class="main-section" action="{{ url('/schedule/edit') }}" method="POST">
             @csrf
             <h4>日時</h4>
+            <?php 
+            $date = explode("-", $data->schedule_date);
+            $year = $date[0];
+            $month = $date[1];
+            $day = $date[2];            
+            ?>
             <div class="date">
                 <select name="year">
+                    <option value="<?php echo $year;?>"><?php echo $year;?>年</option>
                     <?php for($i=0; $i<5; $i++):?>
-                        <option value="<?php echo date('Y') + $i; ?>"><?php echo date('Y') + $i; ?>年</option>
+                        @if( date('Y') + $i != $year)
+                            <option value="<?php echo date('Y') + $i; ?>"><?php echo date('Y') + $i; ?>年</option>
+                        @endif
                     <?php endfor; ?>
                 </select>
                 <select name="month">
+                    <option value="<?php echo $month;?>"><?php echo $month;?>月</option>
                     <?php for($i=1; $i<=12; $i++):?>
-                        <option value="<?php echo sprintf('%02d', $i); ?>"><?php echo sprintf('%02d', $i); ?>月</option>
+                        @if (sprintf('%02d', $i) != $month)
+                            <option value="<?php echo sprintf('%02d', $i); ?>"><?php echo sprintf('%02d', $i); ?>月</option>
+                        @endif
                     <?php endfor; ?>
                 </select>
                 <select name="day">
+                    <option value="<?php echo $day;?>"><?php echo $day;?>日</option>
                     <?php for($i=1; $i<=31; $i++):?>
-                        <option value="<?php echo sprintf('%02d', $i); ?>"><?php echo sprintf('%02d', sprintf('%02d', $i)); ?>日</option>
+                        @if(sprintf('%02d', $i) != $day)
+                            <option value="<?php echo sprintf('%02d', $i); ?>"><?php echo sprintf('%02d', sprintf('%02d', $i)); ?>日</option>
+                        @endif
                     <?php endfor; ?>
                 </select>
             </div>
             <div class="time">
                 <label for="start">開始時刻</label>
                 <select name="start_hour" id="start">
+                    <?php 
+                    $start_time = explode(":", $data->starting_time);
+                    $start_time_hour = $start_time[0];
+                    $start_time_minute = $start_time[1];
+                    ?>
+                        <option value="<?php echo $start_time_hour; ?>"><?php echo $start_time_hour; ?>時</option>
                     <?php for($i=0; $i<=23; $i++):?>
-                        <option value="<?php echo sprintf('%02d', $i); ?>"><?php echo sprintf('%02d', sprintf('%02d', $i)); ?>時</option>
+                        @if(sprintf('%02d', $i) != $start_time_hour)
+                            <option value="<?php echo sprintf('%02d', $i); ?>"><?php echo sprintf('%02d', sprintf('%02d', $i)); ?>時</option>
+                        @endif
                     <?php endfor; ?>
                 </select>
                 <select name="start_minute" id="start" class="minute">
+                        <option value="<?php echo $start_time_minute; ?>"><?php echo $start_time_minute; ?>分</option>
                     <?php for($i=0; $i<=59; $i++):?>
-                        <option value="<?php echo sprintf('%02d', $i); ?>"><?php echo sprintf('%02d', sprintf('%02d', $i)); ?>分</option>
+                        @if(sprintf('%02d', $i) != $start_time_minute)
+                            <option value="<?php echo sprintf('%02d', $i); ?>"><?php echo sprintf('%02d', sprintf('%02d', $i)); ?>分</option>
+                        @endif
                     <?php endfor; ?>
                 </select>
 
                 <label for="end">終了時刻</label>
-                <select name="end_hour" id="end">
+                <select name="end_hour" id="end" value='end_time'>
+                    <?php 
+                    $end_time = explode(":", $data->end_time);
+                    $end_time_hour = $end_time[0];
+                    $end_time_minute = $end_time[1];
+                    ?>
+                        <option value="<?php echo $end_time_hour; ?>"><?php echo $end_time_hour; ?>時</option>
                     <?php for($i=0; $i<=23; $i++):?>
-                        <option value="<?php echo sprintf('%02d', $i); ?>"><?php echo sprintf('%02d', sprintf('%02d', $i)); ?>時</option>
+                        @if(sprintf('%02d', $i) != $end_time_hour)
+                            <option value="<?php echo sprintf('%02d', $i); ?>"><?php echo sprintf('%02d', sprintf('%02d', $i)); ?>時</option>
+                        @endif
                     <?php endfor; ?>
                 </select>
                 <select name="end_minute" id="end" class="minute">
+                    <option value="<?php echo $end_time_minute; ?>"><?php echo $end_time_minute; ?>分</option>
                     <?php for($i=0; $i<=59; $i++):?>
-                        <option value="<?php echo sprintf('%02d', $i); ?>"><?php echo sprintf('%02d', sprintf('%02d', $i)); ?>分</option>
+                        @if(sprintf('%02d', $i) != $end_time_minute)
+                            <option value="<?php echo sprintf('%02d', $i); ?>"><?php echo sprintf('%02d', sprintf('%02d', $i)); ?>分</option>
+                        @endif
                     <?php endfor; ?>
                 </select>
             </div>
@@ -94,8 +131,16 @@
             </div>
 
             @foreach($equipment as $item)
-            <div class="belongings-content">
-                <div class="checkbox"><img src="" alt=""></div>
+            <div class="belongings-content" id="belongings-content">
+                <div class="checkbox" id="checkbox" onclick="checkboxChangeEdit('{{ $item->id }}')">
+                    @foreach($equipment_check as $check)
+                        @if($item->id == $check->equipment_id)
+                            @if($check->checkbox)
+                                <img src="{{ asset('img/checkbox-icon.png') }}" alt="" class="checkbox_icon">
+                            @endif
+                        @endif                        
+                    @endforeach
+                </div>
                 <div class="equipment-name">{{ $item->equipment_name }}</div>
                 <div class="edit">編集</div>
                 <div class="equipment_genre">{{ $item->equipment_genre }}</div>
@@ -118,6 +163,14 @@
         @method('PATCH')
         <input type="hidden" name="search_equipments" value="" id="search_equipments">
         <input type="hidden" name="equipment_sort" value="" id="equipment_sort">
+    </form>
+
+    <form action="/schedule/checkbox/edit" name="equipmentCheckForm" method="POST">
+        @csrf
+        @method('PATCH')
+        <input type="hidden" name="form_schedule_id" value="{{ $data->id }}" id="form_schedule_id">
+        <input type="hidden" name="form_check_id" value="" id="form_check_id">
+        <input type="hidden" name="form_check_value" value="" id="form_check_value">
     </form>
 
         </div>
