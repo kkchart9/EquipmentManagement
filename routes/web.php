@@ -38,7 +38,7 @@ Route::get('/schedule/register', [App\Http\Controllers\ScheduleController::class
 Route::post('/schedule/register', [App\Http\Controllers\ScheduleController::class, 'store'])->name('schedule.register');
 
 // スケジュール編集画面
-Route::get('/schedule/edit', [App\Http\Controllers\ScheduleController::class, 'edit']);
+Route::get('/schedule/edit', [App\Http\Controllers\ScheduleController::class, 'edit'])->name('schedule.edit');
 
 // スケジュールをアップデート
 Route::post('/schedule/edit', [App\Http\Controllers\ScheduleController::class, 'update']);
@@ -52,6 +52,13 @@ Route::post('/schedule/destroy', [App\Http\Controllers\ScheduleController::class
 // sort
 Route::patch('/schedule/register',[App\Http\Controllers\ScheduleController::class, 'sort']);
 
+
+Route::patch('/schedule/edit',[App\Http\Controllers\ScheduleController::class, 'sort_edit']);
+
+
+Route::patch('/schedule/checkbox',[App\Http\Controllers\ScheduleController::class, 'checkbox']);
+
+Route::patch('/schedule/checkbox/edit',[App\Http\Controllers\ScheduleController::class, 'checkbox_edit']);
 
 // ホーム画面表示用
 Route::get('/homescreen', [App\Http\Controllers\HomeScreenController::class, 'index']);

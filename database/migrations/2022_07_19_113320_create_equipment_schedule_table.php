@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddScheduleIdToEquipmentsTable extends Migration
+class CreateEquipmentScheduleTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,12 @@ class AddScheduleIdToEquipmentsTable extends Migration
      */
     public function up()
     {
-        Schema::table('equipments', function (Blueprint $table) {
+        Schema::create('equipment_schedule', function (Blueprint $table) {
             $table->integer('schedule_id');
+            $table->integer('equipment_id');
+            $table->integer('checkbox');
         });
-    }
+    }                             
 
     /**
      * Reverse the migrations.
@@ -25,8 +27,6 @@ class AddScheduleIdToEquipmentsTable extends Migration
      */
     public function down()
     {
-        Schema::table('equipments', function (Blueprint $table) {
-            $table->dropColumn('schedule_id');
-        });
+        Schema::dropIfExists('equipment_schedule');
     }
 }

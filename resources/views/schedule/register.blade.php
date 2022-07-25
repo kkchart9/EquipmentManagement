@@ -34,18 +34,27 @@
             <h4>日時</h4>
             <div class="date">
                 <select name="year">
+                    <option value="<?php echo date('Y');?>"><?php echo date('Y');?>年</option>
                     <?php for($i=0; $i<5; $i++):?>
-                        <option value="<?php echo date('Y') + $i; ?>"><?php echo date('Y') + $i; ?>年</option>
+                        @if(date('Y') + $i != date('Y'))
+                            <option value="<?php echo date('Y') + $i; ?>"><?php echo date('Y') + $i; ?>年</option>
+                        @endif
                     <?php endfor; ?>
                 </select>
                 <select name="month">
+                    <option value="<?php echo date('m');?>"><?php echo date('m');?>月</option>
                     <?php for($i=1; $i<=12; $i++):?>
-                        <option value="<?php echo sprintf('%02d', $i); ?>"><?php echo sprintf('%02d', $i); ?>月</option>
+                        @if(date('m') != sprintf('%02d', $i))
+                            <option value="<?php echo sprintf('%02d', $i); ?>"><?php echo sprintf('%02d', $i); ?>月</option>
+                        @endif
                     <?php endfor; ?>
                 </select>
                 <select name="day">
+                    <option value="<?php echo date('d');?>"><?php echo date('d');?>日</option>
                     <?php for($i=1; $i<=31; $i++):?>
-                        <option value="<?php echo sprintf('%02d', $i); ?>"><?php echo sprintf('%02d', sprintf('%02d', $i)); ?>日</option>
+                        @if(date('d') != sprintf('%02d', $i))
+                            <option value="<?php echo sprintf('%02d', $i); ?>"><?php echo sprintf('%02d', sprintf('%02d', $i)); ?>日</option>
+                        @endif
                     <?php endfor; ?>
                 </select>
             </div>
@@ -88,7 +97,8 @@
 
             <div class="belongings-title">
                 <h4>持ち物選択</h4>
-                <input type="text" class="equipment_search" placeholder="機材を検索">
+                <input type="text" class="equipment_search" id="equipment_search" placeholder="機材を検索" value="">
+                <p type="submit" class="search" name="search_button" id="search_button" onclick="searchSubmit();">検索</p>
                 <select name="sort" id="equipmentsSort" class="sort">
                     <option value="">並び替え</option>
                     <option value="idLate">新しい順</option>
@@ -96,9 +106,15 @@
                 </select>
             </div>
 
+            <input type="hidden" value="{{ $equipment }}" name="equipments">
+
             @foreach($equipment as $item)
-            <div class="belongings-content">
-                <div class="checkbox"><img src="" alt=""></div>
+            <div class="belongings-content" id="belongings-content">
+                <div class="checkbox" id="checkbox" onclick="checkboxChange('{{ $item->id }}','{{ $item->check_value }}')">
+                    @if($item->check_value) 
+                        <img src="{{ asset('img/checkbox-icon.png') }}" alt="" class="checkbox_icon">
+                    @endif
+                </div>
                 <div class="equipment-name">{{ $item->equipment_name }}</div>
                 <div class="edit">編集</div>
                 <div class="equipment_genre">{{ $item->equipment_genre }}</div>
@@ -107,16 +123,25 @@
             @endforeach
             
 
-            <button type="submit" class="register">登録</button>
+            <button type="submit" class="register" name="register_button">登録</button>
 
         </form>
         <form action="/schedule/register" name="sortEquipmentsForm" method="POST">
             @csrf
             @method('PATCH')
+            <input type="hidden" name="search_equipments" value="" id="search_equipments">
             <input type="hidden" name="equipment_sort" value="" id="equipment_sort">
+        </form>
+
+        <form action="/schedule/checkbox" name="equipmentCheckForm" method="POST">
+            @csrf
+            @method('PATCH')
+            <input type="hidden" name="form_check_id" value="" id="form_check_id">
+            <input type="hidden" name="form_check_value" value="" id="form_check_value">
         </form>
     </div>
 </div>
+
 <script src="{{ asset('/js/schedule.js') }}"></script>
 
 @endsection
