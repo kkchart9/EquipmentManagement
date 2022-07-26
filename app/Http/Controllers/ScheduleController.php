@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Schedule;
 use App\Models\Equipments;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 
 class ScheduleController extends Controller
 {
@@ -26,32 +27,51 @@ class ScheduleController extends Controller
 
     public function store(Request $request)
     {
+        $rules = [
+            'schedule_name' => 'required',
+            'location' => 'required',
+        ];
 
-        // 新規作成
-        Schedule::create([
-            'user_id' => 1,
-            'schedule_name' => $request->schedule_name,
-            $date = $request->year . '-' . $request->month . '-' . $request->day,
-            'schedule_date' => $date,
-            $starting_time = $request->start_hour . ':' . $request->start_minute,
-            $end_time = $request->end_hour . ':' . $request->end_minute,
-            'starting_time' => $starting_time,
-            'end_time' => $end_time,
-            'location' => $request->location,
-            'belongings' => '持ち物',
-            'schedule_color' => $request->schedule_color,
-            'optional_item' => '自由項目',
-        ]);
-        $maxScheduleId = Schedule::max('id');
+        $message = [
+            'schedule_name.required' => 'スケジュールの名前を決めてください。',
+            'location.required' => 'スケジュールの場所を決めてください。',
+        ];
 
-        foreach (json_decode($request->equipments) as $item) {
-            DB::insert('insert into equipment_schedule (schedule_id, equipment_id, checkbox) values (?, ?, ?)', [$maxScheduleId, $item->id, $item->check_value]);
+
+        $validator = Validator::make($request->all(), $rules, $message);
+
+        if ($validator->fails()) {
+            $equipment = Equipments::get();
+            return redirect('/schedule/register')->with(compact('equipment'))->withErrors($validator)
+            ->withInput();;
+        } else {
+            // 新規作成
+            Schedule::create([
+                'user_id' => 1,
+                'schedule_name' => $request->schedule_name,
+                $date = $request->year . '-' . $request->month . '-' . $request->day,
+                'schedule_date' => $date,
+                $starting_time = $request->start_hour . ':' . $request->start_minute,
+                $end_time = $request->end_hour . ':' . $request->end_minute,
+                'starting_time' => $starting_time,
+                'end_time' => $end_time,
+                'location' => $request->location,
+                'belongings' => '持ち物',
+                'schedule_color' => $request->schedule_color,
+                'optional_item' => '自由項目',
+            ]);
+            $maxScheduleId = Schedule::max('id');
+
+            foreach (json_decode($request->equipments) as $item) {
+                DB::insert('insert into equipment_schedule (schedule_id, equipment_id, checkbox) values (?, ?, ?)', [$maxScheduleId, $item->id, $item->check_value]);
+            }
+
+            Equipments::where('check_value', 1)->update([
+                'check_value' => 0
+            ]);
+            return redirect('/schedule');
         }
-
-        Equipments::where('check_value', 1)->update([
-            'check_value' => 0
-        ]);
-        return redirect('/schedule');
+        
     }
 
     public function edit(Request $request)
@@ -68,6 +88,7 @@ class ScheduleController extends Controller
 
     public function update(Request $request)
     {
+        
         Schedule::where('id', $request->id)->update([
             'id' => $request->id,
             'schedule_name' => $request->schedule_name,
@@ -75,6 +96,7 @@ class ScheduleController extends Controller
             'starting_time' => $request->start_hour . ':' . $request->start_minute,
             'end_time' => $request->end_hour . ':' . $request->end_minute,
             'location' => $request->location,
+            'schedule_color' => $request->schedule_color,
         ]);
         return redirect('/schedule');
     }

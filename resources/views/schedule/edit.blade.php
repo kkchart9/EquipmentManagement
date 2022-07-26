@@ -119,6 +119,10 @@
             <h4>場所</h4>
                 <input type="text" class="location" name="location" value="{{ $data->location }}">
 
+            <h4>スケジュールの色を選択肢してください</h4>
+            <input type="color" class="form-control form-control-lg form-control-color col-3" name="schedule_color"
+                list=datalist value="#ffffff">
+
             <div class="belongings-title">
                 <h4>持ち物選択</h4>
                 <input type="text" class="equipment_search" id="equipment_search" placeholder="機材を検索" value="">

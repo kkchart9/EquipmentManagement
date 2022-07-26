@@ -28,6 +28,13 @@
 
     <div class="schedule-main">
         <h3>スケジュール登録画面</h3>
+
+        <ul class="validator">
+            @foreach ($errors->all() as $error)
+                <li>{{$error}}</li>
+            @endforeach
+        </ul>
+        
     
         <form class="main-section" action="{{ route('schedule.register') }}" method="POST">
             @csrf

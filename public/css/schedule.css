@@ -44,6 +44,18 @@
     margin-top: 30px;
 }
 
+.schedule-main .validator{
+    width: 400px;
+    margin: auto;
+    margin-top: 40px;
+    font-size: 24px;
+    color: red;
+}
+
+.schedule-main .validator li {
+    list-style: none;
+}
+
 .schedule-main .button {
     margin-top: 56px;
     text-align: center;
